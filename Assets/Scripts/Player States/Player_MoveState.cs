@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
-public class Player_MoveState : EntityState
+public class Player_MoveState : PlayerGroundedState
 {
     public Player_MoveState(Player player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
     {

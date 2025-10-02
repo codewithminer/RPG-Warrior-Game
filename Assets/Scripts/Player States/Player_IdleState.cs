@@ -6,6 +6,12 @@ public class Player_IdleState : PlayerGroundedState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+        player.SetVelocity(0, rb.linearVelocity.y); // prevent character sliding after touched the ground.
+    }
+
     public override void Update()
     {
         base.Update();

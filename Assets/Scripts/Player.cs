@@ -2,23 +2,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Animator anim {get; private set; }
-    public Rigidbody2D rb {get; private set;}
+    public Animator anim { get; private set; }
+    public Rigidbody2D rb { get; private set; }
 
-    public PlayerInputSet input {get; private set;}
+    public PlayerInputSet input { get; private set; }
     private StateMachine stateMachine;
 
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
-    public Player_JumpState jumpState {get; private set; }
+    public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
-    
-    
+
+
     [Header("Movement details")]
     public Vector2 moveInput { get; private set; }
+    [Range(0,1)]
+    public float inAirMoveMultiplier = 0.8f; // should be from 0 to 1
     public float moveSpeed = 7f;
     public float jumpForce = 5f;
     private bool isFacingRight = true;
+
+    [Header("Collision detection")]
+    [SerializeField] private float groundCheckDistance = 1.4f;
+    [SerializeField] private LayerMask whatIsGround;
+    public bool isGroundCheck;
 
     void Awake()
     {
@@ -56,24 +63,37 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        HandleCollisionDetection();
         stateMachine.UpdateActiveState();
     }
 
-    public void SetVelocity(float xVelocity, float yVelocity){
+    public void SetVelocity(float xVelocity, float yVelocity)
+    {
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
 
-    private void HandleFlip(float xVelocity){
-        if(xVelocity > 0 && !isFacingRight)
+    private void HandleFlip(float xVelocity)
+    {
+        if (xVelocity > 0 && !isFacingRight)
             Flip();
-        else if(xVelocity < 0 && isFacingRight)
+        else if (xVelocity < 0 && isFacingRight)
             Flip();
     }
 
-    private void Flip(){
+    private void Flip()
+    {
         transform.Rotate(0, 180, 0);
         isFacingRight = !isFacingRight;
     }
 
+    private void HandleCollisionDetection()
+    {
+        isGroundCheck = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
+    }
 }

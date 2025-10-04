@@ -13,18 +13,20 @@ public class Player : MonoBehaviour
     public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
     public Player_WallSlideState wallSlideState { get; private set; }
+    public Player_WallJumpState walljumpState { get; private set; }
 
 
     [Header("Movement details")]
     public Vector2 moveInput { get; private set; }
-    [Range(0,1)]
+    public Vector2 wallJumpForce; // jump direction
+    [Range(0, 1)]
     public float inAirMoveMultiplier = 0.8f; // should be from 0 to 1
     [Range(0, 1)]
     public float wallSlideSlowMultiplier = 0.3f;
     public float moveSpeed = 7f;
     public float jumpForce = 5f;
     private bool isFacingRight = true;
-    private int facingDir = 1;
+    public int facingDir { get; private set; } = 1;
 
     [Header("Collision detection")]
     [SerializeField] private float groundCheckDistance = 1.4f;
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
         jumpState = new Player_JumpState(this, stateMachine, "jumpFall");
         fallState = new Player_FallState(this, stateMachine, "jumpFall");
         wallSlideState = new Player_WallSlideState(this, stateMachine, "wallSlide");
+        walljumpState = new Player_WallJumpState(this, stateMachine, "jumpFall");
     }
 
     void OnEnable()

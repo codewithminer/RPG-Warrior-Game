@@ -11,7 +11,7 @@ public abstract class EntityState
     protected StateMachine stateMachine;
     protected string animBoolName;
 
-    Animator anim;
+    protected Animator anim;
 
     protected Rigidbody2D rb;
     protected PlayerInputSet input;

@@ -13,10 +13,11 @@ public class Player_DashState : EntityState
     public override void Enter()
     {
         base.Enter();
+        dashDir = player.moveInput.x != 0 ? (int)player.moveInput.x : player.facingDir;
         stateTimer = player.dashDuration;
+        
         originalGravityScale = rb.gravityScale;
         rb.gravityScale = 0;
-        dashDir = player.facingDir;
     }
 
     public override void Update()

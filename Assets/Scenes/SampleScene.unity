@@ -679,8 +679,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de470406efd5284da2e388158e140b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  attackVelocity: {x: 3, y: 1.5}
+  attackVelocity:
+  - {x: 3, y: 1.5}
+  - {x: 1, y: 2.5}
+  - {x: 4, y: 5}
   attackVelocityDuration: 0.1
+  comboResetTime: 1
   wallJumpForce: {x: 6, y: 12}
   inAirMoveMultiplier: 0.8
   wallSlideSlowMultiplier: 0.3

@@ -13,7 +13,7 @@ public class Player_MoveState : PlayerGroundedState
     {
         base.Update();
         HandleMovement();
-        if (player.moveInput.x == 0)
+        if (player.moveInput.x == 0 || player.wallDetected)
             stateMachine.ChangeState(player.idleState);
         HandleMovement();
 

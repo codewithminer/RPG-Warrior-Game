@@ -18,8 +18,9 @@ public class Player_WallSlideState : EntityState
                 stateMachine.ChangeState(player.fallState);
         if (player.groundDetected)
             {
-                stateMachine.ChangeState(player.idleState);
-                player.Flip();
+            stateMachine.ChangeState(player.idleState);
+                if(player.facingDir != player.moveInput.x)
+                    player.Flip();
             }
     }
 

@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6303887, y: 3.025075, z: 27.75914}
+  m_LocalPosition: {x: 5.260389, y: 5.9620748, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 762111246}
   - component: {fileID: 762111244}
   - component: {fileID: 762111243}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,8 +499,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.052198052, y: -0.35150528}
-  m_Size: {x: 0.77487254, y: 2.0261035}
+  m_Offset: {x: -0.052198052, y: -0.32329226}
+  m_Size: {x: 0.77487254, y: 1.9696774}
   m_Direction: 0
 --- !u!4 &762111245
 Transform:
@@ -511,7 +511,7 @@ Transform:
   m_GameObject: {fileID: 762111242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: 1.322, z: 0}
+  m_LocalPosition: {x: -8.22, y: 1.307, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -542,6 +542,11 @@ MonoBehaviour:
   idleDuration: 2
   moveSpeed: 1.4
   moveAnimSpeedMultiplier: 1
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerCheck: {fileID: 762111245}
+  playerCheckDistance: 10
 --- !u!1 &808102421
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +682,7 @@ GameObject:
   - component: {fileID: 900970139}
   - component: {fileID: 900970141}
   - component: {fileID: 900970140}
+  - component: {fileID: 900970142}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -779,6 +785,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &900970142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900970138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d425d08a40b27d4f8e903196819416d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_AnimationTriggers
 --- !u!1 &977117330
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,7 +1000,7 @@ Transform:
   m_GameObject: {fileID: 1167905049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6303887, y: 3.025075, z: 27.75914}
+  m_LocalPosition: {x: 5.260389, y: 5.9620748, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1147,7 +1165,7 @@ GameObject:
   - component: {fileID: 1188778144}
   - component: {fileID: 1188778147}
   - component: {fileID: 1188778146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1197,7 +1215,7 @@ Transform:
   m_GameObject: {fileID: 1188778143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29000002, y: 1.343, z: 0}
+  m_LocalPosition: {x: 4.92, y: 4.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1850,7 +1868,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d425d08a40b27d4f8e903196819416d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationTriggers
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_AnimationTriggers
 --- !u!1 &2064710329
 GameObject:
   m_ObjectHideFlags: 0

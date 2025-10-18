@@ -8,6 +8,8 @@ public class Enemy_Skeleton : Enemy
 
         idleState = new Enemy_IdleState(this, stateMachine, "idle");
         moveState = new Enemy_MoveState(this, stateMachine, "move");
+        attackState = new Enemy_AttackState(this, stateMachine, "attack");
+        battleState = new Enemy_BattleState(this, stateMachine, "battle");
     }
 
     protected override void Start()
@@ -15,6 +17,4 @@ public class Enemy_Skeleton : Enemy
         base.Start();
         stateMachine.Initialize(idleState);
     }
-
-    
 }

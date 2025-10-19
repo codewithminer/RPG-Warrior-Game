@@ -28,6 +28,7 @@ public abstract class EntityState
         // we going to run logic of the state here
 
         stateTimer -= Time.deltaTime;
+        UpdateAnimationParameters();
     }
 
     public virtual void Exit()
@@ -36,8 +37,10 @@ public abstract class EntityState
         anim.SetBool(animBoolName, false);
     }
 
-    public void CallAnimationTrigger()
+    public void AnimationTrigger()
     {
         triggerCalled = true;
     }
+
+    public virtual void UpdateAnimationParameters(){}
 }

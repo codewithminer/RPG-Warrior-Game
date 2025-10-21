@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.260389, y: 5.9620748, z: 27.75914}
+  m_LocalPosition: {x: -6.299611, y: 2.9620748, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 762111243}
   - component: {fileID: 762111247}
   - component: {fileID: 762111248}
+  - component: {fileID: 762111249}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -513,7 +514,7 @@ Transform:
   m_GameObject: {fileID: 762111242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.9, y: 1.307, z: 0}
+  m_LocalPosition: {x: -3.95, y: 1.307, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -582,11 +583,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 762111242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d8753a9a45e150498538315ffeaa755, type: 3}
+  m_Script: {fileID: 11500000, guid: 7837520efb32c174abcb33888186dd03, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   maxHp: 100
   isDead: 0
+--- !u!114 &762111249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762111242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ed556fc352c9d45b83d3c09120cc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 15a581bef2f72f0408eda0bea1264ccf, type: 2}
+  onDamageVfxDuration: 0.15
 --- !u!1 &808102421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1055,7 @@ Transform:
   m_GameObject: {fileID: 1167905049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.260389, y: 5.9620748, z: 27.75914}
+  m_LocalPosition: {x: -6.299611, y: 2.9620748, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1207,9 +1222,10 @@ GameObject:
   - component: {fileID: 1188778146}
   - component: {fileID: 1188778148}
   - component: {fileID: 1188778149}
+  - component: {fileID: 1188778150}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1257,7 +1273,7 @@ Transform:
   m_GameObject: {fileID: 1188778143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.92, y: 4.28, z: 0}
+  m_LocalPosition: {x: -6.64, y: 1.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1363,6 +1379,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
   maxHp: 100
   isDead: 0
+--- !u!114 &1188778150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188778143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ed556fc352c9d45b83d3c09120cc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 15a581bef2f72f0408eda0bea1264ccf, type: 2}
+  onDamageVfxDuration: 0.15
 --- !u!1 &1397491300
 GameObject:
   m_ObjectHideFlags: 0

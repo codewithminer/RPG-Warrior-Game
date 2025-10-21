@@ -12,9 +12,11 @@ public class Enemy_BattleState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        UpdateBattleTime();
 
+        // player ??= enemy.GetPlayerRefrence(); or
         if (player == null)
-            player = enemy.PlayerDetected().transform;
+            player = enemy.GetPlayerRefrence();
 
         if (shouldRetreat())
         {
@@ -27,13 +29,13 @@ public class Enemy_BattleState : EnemyState
     {
         base.Update();
 
-        if (enemy.PlayerDetected())
+        if (enemy.PlayerDetectedByRaycast())
             UpdateBattleTime();
 
         if (BattleTimeIsOver())
             stateMachine.ChangeState(enemy.idleState);
 
-        if (withInAttackRange() && enemy.PlayerDetected())
+        if (withInAttackRange() && enemy.PlayerDetectedByRaycast())
             stateMachine.ChangeState(enemy.attackState);
         else
             enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);

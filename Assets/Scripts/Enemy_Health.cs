@@ -6,11 +6,14 @@ public class Enemy_Health : Entity_Health
 
     public override void TakeDamage(float damage, Transform damageDealer)
     {
+        base.TakeDamage(damage, damageDealer);
+
+        if (isDead)
+            return;
+
         // if (damageDealer.CompareTag("Player"))
         //     enemy.TryEnterBattleState(damageDealer); or
         if (damageDealer.GetComponent<Player>() != null)
             enemy.TryEnterBattleState(damageDealer);
-        base.TakeDamage(damage, damageDealer);
-        // enter to battle state
     }
 }

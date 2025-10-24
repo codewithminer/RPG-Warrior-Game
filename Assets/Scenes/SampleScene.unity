@@ -429,11 +429,11 @@ GameObject:
   m_Component:
   - component: {fileID: 762111245}
   - component: {fileID: 762111246}
-  - component: {fileID: 762111244}
-  - component: {fileID: 762111243}
   - component: {fileID: 762111247}
   - component: {fileID: 762111248}
   - component: {fileID: 762111249}
+  - component: {fileID: 762111244}
+  - component: {fileID: 762111243}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71307d13d4a6dd34baf1ca537c232b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
-  damage: 31
+  damage: 25
   targetCheck: {fileID: 1999586889}
   targetCheckRadius: 1
   whatIsTarget:
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   onDamageKnockback: {x: 1.5, y: 2.5}
   heavyDamageThreshhold: 0.3
   heavyKnockbackDuration: 0.5
-  onHeavyDamageKnockback: {x: 7, y: 7}
+  onHeavyDamageKnockback: {x: 5, y: 5}
 --- !u!114 &1188778150
 MonoBehaviour:
   m_ObjectHideFlags: 0

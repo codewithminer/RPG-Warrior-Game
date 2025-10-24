@@ -6,6 +6,7 @@ public class Enemy : Entity
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
+    public Enemy_DeadState deadState;
 
     [Header("Battle details")]
     public float battleMoveSpeed = 3f;
@@ -39,6 +40,12 @@ public class Enemy : Entity
         if (player == null)
             player = PlayerDetectedByRaycast().transform;
         return player;
+    }
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+        stateMachine.ChangeState(deadState);
     }
 
     public RaycastHit2D PlayerDetectedByRaycast()

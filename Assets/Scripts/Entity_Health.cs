@@ -6,6 +6,7 @@ public class Entity_Health : MonoBehaviour
     private Entity entity;
     private Entity_VFX entityVfx;
 
+    [SerializeField] protected float currentHp;
     [SerializeField] protected float maxHp = 100;
     [SerializeField] protected bool isDead;
 
@@ -21,8 +22,9 @@ public class Entity_Health : MonoBehaviour
 
     protected virtual void Awake()
     {
-        entity = GetComponent<Entity>();
+        entity = GetComponent<Entity>(); // returns the already existing Enemy, Player, or any subclass of Entity component attached to that GameObject — not a new one.
         entityVfx = GetComponent<Entity_VFX>();
+        currentHp = maxHp;
     }
 
     public virtual void TakeDamage(float damage, Transform damageDealer)
@@ -40,8 +42,8 @@ public class Entity_Health : MonoBehaviour
 
     protected void ReduceHp(float damage)
     {
-        maxHp -= damage;
-        if (maxHp <= 0)
+        currentHp -= damage;
+        if (currentHp <= 0)
             Die();
     }
 

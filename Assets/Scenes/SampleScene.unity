@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7837520efb32c174abcb33888186dd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
+  currentHp: 0
   maxHp: 100
   isDead: 0
   knockbackDuration: 0.2
@@ -1322,8 +1323,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.012488842, y: -0.3533665}
-  m_Size: {x: 0.8080654, y: 1.9917881}
+  m_Offset: {x: 0.012488842, y: -0.334638}
+  m_Size: {x: 0.8080654, y: 1.9543312}
   m_Direction: 0
 --- !u!50 &1188778147
 Rigidbody2D:
@@ -1382,6 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8753a9a45e150498538315ffeaa755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
+  currentHp: 0
   maxHp: 100
   isDead: 0
   knockbackDuration: 0.2

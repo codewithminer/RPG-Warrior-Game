@@ -48,6 +48,11 @@ public class Enemy : Entity
         stateMachine.ChangeState(deadState);
     }
 
+    private void HandlePlayerDeath()
+    {
+        stateMachine.ChangeState(idleState);
+    }
+
     public RaycastHit2D PlayerDetectedByRaycast()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * facingDir, playerCheckDistance, whatIsPlayer | whatIsGround );
@@ -73,5 +78,15 @@ public class Enemy : Entity
         Gizmos.DrawLine(
             playerCheck.position,
             new Vector3(playerCheck.position.x + (facingDir * minRetreatDistance), playerCheck.position.y));
+    }
+
+    private void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
     }
 }

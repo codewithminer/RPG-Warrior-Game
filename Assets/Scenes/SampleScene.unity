@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 762111249}
   - component: {fileID: 762111244}
   - component: {fileID: 762111243}
+  - component: {fileID: 762111250}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -1197,7 +1198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHp: 0
-  maxHp: 100
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
@@ -1221,6 +1221,22 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   hitVfx: {fileID: 2384945983892869880, guid: 47cf6894c42b44e4f952766df2003bb3, type: 3}
   attackAlert: {fileID: 1546425511}
+--- !u!114 &762111250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762111242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b29c8ef6fef2d42a110191b43cfd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  maxHp:
+    baseValue: 100
+  vitality:
+    baseValue: 2
 --- !u!1 &808102421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2177,7 @@ GameObject:
   - component: {fileID: 1188778150}
   - component: {fileID: 1188778147}
   - component: {fileID: 1188778146}
+  - component: {fileID: 1188778152}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2299,7 +2316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
   currentHp: 0
-  maxHp: 100
   isDead: 0
   knockbackDuration: 0.2
   onDamageKnockback: {x: 1.5, y: 2.5}
@@ -2341,6 +2357,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   counterRecovery: 0.25
+--- !u!114 &1188778152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188778143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b29c8ef6fef2d42a110191b43cfd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  maxHp:
+    baseValue: 100
+  vitality:
+    baseValue: 7
 --- !u!1 &1196854094
 GameObject:
   m_ObjectHideFlags: 0

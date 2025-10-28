@@ -1235,8 +1235,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
   maxHp:
     baseValue: 100
-  vitality:
-    baseValue: 2
+  major:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 0
+  offense:
+    damage:
+      baseValue: 0
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightingDamage:
+      baseValue: 0
+  defence:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireRes:
+      baseValue: 0
+    iceRes:
+      baseValue: 0
+    lightingRes:
+      baseValue: 0
 --- !u!1 &808102421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,11 +2204,11 @@ GameObject:
   - component: {fileID: 1188778145}
   - component: {fileID: 1188778144}
   - component: {fileID: 1188778151}
+  - component: {fileID: 1188778152}
   - component: {fileID: 1188778149}
   - component: {fileID: 1188778150}
   - component: {fileID: 1188778147}
   - component: {fileID: 1188778146}
-  - component: {fileID: 1188778152}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2371,8 +2402,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
   maxHp:
     baseValue: 100
-  vitality:
-    baseValue: 7
+  major:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 7
+  offense:
+    damage:
+      baseValue: 0
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightingDamage:
+      baseValue: 0
+  defence:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireRes:
+      baseValue: 0
+    iceRes:
+      baseValue: 0
+    lightingRes:
+      baseValue: 0
 --- !u!1 &1196854094
 GameObject:
   m_ObjectHideFlags: 0

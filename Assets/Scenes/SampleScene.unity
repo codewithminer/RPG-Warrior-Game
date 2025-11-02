@@ -1179,7 +1179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71307d13d4a6dd34baf1ca537c232b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
-  damage: 10
   targetCheck: {fileID: 1397491301}
   targetCheckRadius: 1
   whatIsTarget:
@@ -1220,6 +1219,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.15
   hitVfxColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   hitVfx: {fileID: 2384945983892869880, guid: 47cf6894c42b44e4f952766df2003bb3, type: 3}
+  critHitVfx: {fileID: 6565518752738296023, guid: 87d3d2679a36685438763b7fc7230c4e, type: 3}
   attackAlert: {fileID: 1546425511}
 --- !u!114 &762111250
 MonoBehaviour:
@@ -2369,6 +2369,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.15
   hitVfxColor: {r: 0.9528302, g: 0.29214135, b: 0.32987538, a: 1}
   hitVfx: {fileID: 2384945983892869880, guid: 47cf6894c42b44e4f952766df2003bb3, type: 3}
+  critHitVfx: {fileID: 6565518752738296023, guid: 87d3d2679a36685438763b7fc7230c4e, type: 3}
 --- !u!114 &1188778151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2381,7 +2382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a57f0335ddaa64d98031dfa28c674f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Combat
-  damage: 10
   targetCheck: {fileID: 1999586889}
   targetCheckRadius: 1
   whatIsTarget:
@@ -2413,11 +2413,11 @@ MonoBehaviour:
       baseValue: 7
   offense:
     damage:
-      baseValue: 0
+      baseValue: 10
     critPower:
-      baseValue: 0
+      baseValue: 250
     critChance:
-      baseValue: 0
+      baseValue: 50
     fireDamage:
       baseValue: 0
     iceDamage:
@@ -2573,6 +2573,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.15
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 0}
+  critHitVfx: {fileID: 0}
 --- !u!1 &1272510497
 GameObject:
   m_ObjectHideFlags: 0

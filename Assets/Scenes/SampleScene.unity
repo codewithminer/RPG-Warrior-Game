@@ -597,7 +597,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.299611, y: 2.9620748, z: 27.75914}
+  m_LocalPosition: {x: -0.6196113, y: 2.9620748, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1119,7 +1119,7 @@ Transform:
   m_GameObject: {fileID: 762111242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.95, y: 1.307, z: 0}
+  m_LocalPosition: {x: -5.67, y: 1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
   maxHp:
-    baseValue: 100
+    baseValue: 1000
   major:
     strength:
       baseValue: 0
@@ -1246,10 +1246,12 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 0
+      baseValue: 10
     critPower:
       baseValue: 0
     critChance:
+      baseValue: 0
+    armorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
@@ -2040,7 +2042,7 @@ Transform:
   m_GameObject: {fileID: 1167905049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.299611, y: 2.9620748, z: 27.75914}
+  m_LocalPosition: {x: -0.6196113, y: 2.9620748, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2259,7 +2261,7 @@ Transform:
   m_GameObject: {fileID: 1188778143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.64, y: 1.28, z: 0}
+  m_LocalPosition: {x: -0.96, y: 1.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2401,7 +2403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
   maxHp:
-    baseValue: 100
+    baseValue: 1000
   major:
     strength:
       baseValue: 0
@@ -2410,7 +2412,7 @@ MonoBehaviour:
     intelligence:
       baseValue: 0
     vitality:
-      baseValue: 7
+      baseValue: 0
   offense:
     damage:
       baseValue: 10
@@ -2418,6 +2420,8 @@ MonoBehaviour:
       baseValue: 250
     critChance:
       baseValue: 50
+    armorReduction:
+      baseValue: 0
     fireDamage:
       baseValue: 0
     iceDamage:

@@ -11,5 +11,5 @@ public class Stat_DefenseGroup
     // elemental defense
     public Stat fireRes; // fireResist
     public Stat iceRes;
-    public Stat lightingRes;
+    public Stat lightningRes;
 }

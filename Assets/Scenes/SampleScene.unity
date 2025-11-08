@@ -1254,9 +1254,9 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 10
+      baseValue: 100
     iceDamage:
-      baseValue: 7
+      baseValue: 25
     lightningDamage:
       baseValue: 5
   defence:
@@ -1268,7 +1268,7 @@ MonoBehaviour:
       baseValue: 0
     iceRes:
       baseValue: 0
-    lightingRes:
+    lightningRes:
       baseValue: 0
 --- !u!1 &808102421
 GameObject:
@@ -2434,10 +2434,10 @@ MonoBehaviour:
     evasion:
       baseValue: 0
     fireRes:
-      baseValue: 0
+      baseValue: 50
     iceRes:
       baseValue: 0
-    lightingRes:
+    lightningRes:
       baseValue: 0
 --- !u!1 &1196854094
 GameObject:

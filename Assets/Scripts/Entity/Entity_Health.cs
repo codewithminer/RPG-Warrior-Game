@@ -5,11 +5,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Slider healthBar;
     private Entity entity;
-    private Entity_Stats stats;
+    private Entity_Stats entityStats;
     private Entity_VFX entityVfx;
 
-    [SerializeField] protected float currentHp;
+    [SerializeField] protected float currentHealth;
     [SerializeField] protected bool isDead;
+
+    [Header("Health regen")]
+    [SerializeField] private float regenInterval = 1;
+    [SerializeField] private bool canRegenerateHealth = true;
 
     [Header("On Damage Knockback")]
     [SerializeField] private float knockbackDuration = .2f;
@@ -26,8 +30,31 @@ public class Entity_Health : MonoBehaviour, IDamageable
         entity = GetComponent<Entity>(); // returns the already existing Enemy, Player, or any subclass of Entity component attached to that GameObject — not a new one.
         entityVfx = GetComponent<Entity_VFX>();
         healthBar = GetComponentInChildren<Slider>();
-        stats = GetComponent<Entity_Stats>();
-        currentHp = stats.GetMaxHealth();
+        entityStats = GetComponent<Entity_Stats>();
+        currentHealth = entityStats.GetMaxHealth();
+        UpdateHealthBar();
+
+        InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
+    }
+
+    private void RegenerateHealth()
+    {
+        if (!canRegenerateHealth)
+            return;
+
+        float regenAmount = entityStats.resources.healthRegen.GetValue();
+        IncreaseHealth(regenAmount);
+    }
+
+    public void IncreaseHealth(float healAmount)
+    {
+        if (isDead)
+            return;
+
+        float newHealth = currentHealth + healAmount;
+        float maxHealth = entityStats.GetMaxHealth();
+
+        currentHealth = Mathf.Min(newHealth, maxHealth);
         UpdateHealthBar();
     }
 
@@ -45,15 +72,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0;
 
-        float mitigation = stats.GetArmorMitigation(armorReduction);
+        float mitigation = entityStats.GetArmorMitigation(armorReduction);
         float physicalDamageTaken = damage * (1 - mitigation);
 
-        float resistance = stats.GetElementalResistance(element);
+        float resistance = entityStats.GetElementalResistance(element);
         float elementalDamageTaken = elementalDamage * (1 - resistance);
 
         TakeKnockback(damageDealer, physicalDamageTaken);
 
-        ReduceHp(physicalDamageTaken + elementalDamageTaken);
+        ReduceHealth(physicalDamageTaken + elementalDamageTaken);
 
         return true;
     }
@@ -66,15 +93,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
         entity?.ReciveKnockback(knockback, duration);
     }
 
-    private bool AttackEvade() => Random.Range(0, 100) < stats.GetEvasion();
+    private bool AttackEvade() => Random.Range(0, 100) < entityStats.GetEvasion();
 
-    public void ReduceHp(float damage)
+    public void ReduceHealth(float damage)
     {
         entityVfx?.PlayOnDamageVfx();
-        currentHp -= damage;
+        currentHealth -= damage;
         UpdateHealthBar();
 
-        if (currentHp <= 0)
+        if (currentHealth <= 0)
             Die();
     }
 
@@ -88,7 +115,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         if (healthBar == null)
             return;
-        healthBar.value = currentHp / stats.GetMaxHealth();
+        healthBar.value = currentHealth / entityStats.GetMaxHealth();
     } 
 
     private Vector2 CalculateKnockbackDirection(float damage, Transform damageDealer)
@@ -104,5 +131,5 @@ public class Entity_Health : MonoBehaviour, IDamageable
         return IsHeavyDamage(damage) ? heavyKnockbackDuration : knockbackDuration;
     }
 
-    private bool IsHeavyDamage(float damage) => damage / stats.GetMaxHealth() > heavyDamageThreshhold;
+    private bool IsHeavyDamage(float damage) => damage / entityStats.GetMaxHealth() > heavyDamageThreshhold;
 }

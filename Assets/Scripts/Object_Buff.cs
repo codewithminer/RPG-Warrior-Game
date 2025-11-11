@@ -1,11 +1,22 @@
+using System;
 using System.Collections;
 using UnityEngine;
+
+[Serializable]
+public class Buff
+{
+    public StatType type;
+    public float value;
+}
 
 public class Object_Buff : MonoBehaviour
 {
     private SpriteRenderer sr;
+    private Entity_Stats statsToModify;
 
     [Header("Buff details")]
+    [SerializeField] private Buff[] buffs;
+    [SerializeField] private string buffName;
     [SerializeField] private float buffDuration = 4;
     [SerializeField] private bool canBeUsed = true;
 
@@ -30,6 +41,8 @@ public class Object_Buff : MonoBehaviour
     {
         if (!canBeUsed)
             return;
+
+        statsToModify = collision.GetComponent<Entity_Stats>();
         StartCoroutine(BuffCo(buffDuration));
     }
 
@@ -37,10 +50,23 @@ public class Object_Buff : MonoBehaviour
     {
         canBeUsed = false;
         sr.color = Color.clear;
+        ApplyBuff(true);
 
         yield return new WaitForSeconds(duration);
-        Debug.Log("Buff has ended.");
+
+        ApplyBuff(false);
         Destroy(gameObject);
+    }
+    
+    private void ApplyBuff(bool apply)
+    {
+        foreach(var buff in buffs)
+        {
+            if (apply)
+                statsToModify.GetStatByType(buff.type).AddModifire(buff.value, buffName);
+            else
+                statsToModify.GetStatByType(buff.type).RemoveModifire(buffName);
+        }
     }
 
 }

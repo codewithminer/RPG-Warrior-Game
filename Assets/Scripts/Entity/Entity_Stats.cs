@@ -5,7 +5,7 @@ public class Entity_Stats : MonoBehaviour
     public Stat_ResourceGroup resources;
     public Stat_MajorGroup major;
     public Stat_OffenseGroup offense;
-    public Stat_DefenseGroup defence;
+    public Stat_DefenseGroup defense;
 
 
     public float GetElementalDamage(out ElementType element, float scaleFactor = 1)
@@ -54,13 +54,13 @@ public class Entity_Stats : MonoBehaviour
         switch (element)
         {
             case ElementType.Fire:
-                baseResistance = defence.fireRes.GetValue();
+                baseResistance = defense.fireRes.GetValue();
                 break;
             case ElementType.Ice:
-                baseResistance = defence.iceRes.GetValue();
+                baseResistance = defense.iceRes.GetValue();
                 break;
             case ElementType.Lightning:
-                baseResistance = defence.lightningRes.GetValue();
+                baseResistance = defense.lightningRes.GetValue();
                 break;
         }
 
@@ -93,7 +93,7 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetArmorMitigation(float armorReduction)
     {
-        float baseArmor = defence.armor.GetValue();
+        float baseArmor = defense.armor.GetValue();
         float bonusArmor = major.vitality.GetValue();
         float totalArmor = baseArmor + bonusArmor;
 
@@ -111,7 +111,7 @@ public class Entity_Stats : MonoBehaviour
     public float GetArmorReduction()
     {
         float finalReduction = offense.armorReduction.GetValue() / 100;
-        
+
         return finalReduction;
     }
 
@@ -120,19 +120,56 @@ public class Entity_Stats : MonoBehaviour
         float baseMaxHealth = resources.maxHealth.GetValue();
         float bounsMaxHealth = major.vitality.GetValue() * 5;
         float finalMaxHealth = baseMaxHealth + bounsMaxHealth;
-        
+
         return finalMaxHealth;
     }
 
     public float GetEvasion()
     {
-        float baseEvasion = defence.evasion.GetValue();
+        float baseEvasion = defense.evasion.GetValue();
         float bounsEvasion = major.agility.GetValue() * .5f; // each agility point gives you 0.5% of evasoin
-        
+
         float totalEvasion = baseEvasion + bounsEvasion;
         float evasionCap = 85f;
 
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap); // be sure evasion does not exceed the cap
         return finalEvasion;
     }
+
+    public Stat GetStatByType(StatType type)
+    {
+        switch (type)
+        {
+            case StatType.MaxHealth: return resources.maxHealth;
+            case StatType.HealthRegen: return resources.healthRegen;
+
+            case StatType.Strength: return major.strength;
+            case StatType.Agility: return major.agility;
+            case StatType.Intelligence: return major.intelligence;
+            case StatType.Vitality: return major.vitality;
+
+            case StatType.AttackSpeed: return offense.attackSpeed;
+            case StatType.Damage: return offense.damage;
+            case StatType.CritChance: return offense.critChance;
+            case StatType.CritPower: return offense.critPower;
+            case StatType.ArmorReduction: return offense.armorReduction;
+
+            case StatType.FireDamage: return offense.fireDamage;
+            case StatType.IceDamage: return offense.iceDamage;
+            case StatType.LightningDamage: return offense.lightningDamage;
+
+            case StatType.Armor: return defense.armor;
+            case StatType.Evasion: return defense.evasion;
+
+            case StatType.IceResistance: return defense.iceRes;
+            case StatType.FireResistance: return defense.fireRes;
+            case StatType.LightningResistance: return defense.lightningRes;
+
+            default:
+                Debug.LogWarning($"StatType {type} not implemented yet.");
+                return null;
+        }
+
+    }
+
 }

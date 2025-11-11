@@ -1131,24 +1131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b29c8ef6fef2d42a110191b43cfd31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  defaultStatSetup: {fileID: 11400000, guid: 5e60e54948bee244b80713b0f6089c7a, type: 2}
   resources:
     maxHealth:
-      baseValue: 1000
+      baseValue: 150
       modifires: []
     healthRegen:
-      baseValue: 0
-      modifires: []
-  major:
-    strength:
-      baseValue: 0
-      modifires: []
-    agility:
-      baseValue: 0
-      modifires: []
-    intelligence:
-      baseValue: 0
-      modifires: []
-    vitality:
       baseValue: 0
       modifires: []
   offense:
@@ -1156,10 +1144,10 @@ MonoBehaviour:
       baseValue: 1
       modifires: []
     damage:
-      baseValue: 150
+      baseValue: 10
       modifires: []
     critPower:
-      baseValue: 0
+      baseValue: 150
       modifires: []
     critChance:
       baseValue: 0
@@ -1190,6 +1178,19 @@ MonoBehaviour:
       baseValue: 0
       modifires: []
     lightningRes:
+      baseValue: 0
+      modifires: []
+  major:
+    strength:
+      baseValue: 0
+      modifires: []
+    agility:
+      baseValue: 0
+      modifires: []
+    intelligence:
+      baseValue: 0
+      modifires: []
+    vitality:
       baseValue: 0
       modifires: []
 --- !u!114 &762111251
@@ -2350,24 +2351,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b29c8ef6fef2d42a110191b43cfd31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  defaultStatSetup: {fileID: 11400000, guid: 94d92b433ea9a694db929642c15667d9, type: 2}
   resources:
     maxHealth:
       baseValue: 1000
       modifires: []
     healthRegen:
-      baseValue: 0
-      modifires: []
-  major:
-    strength:
-      baseValue: 0
-      modifires: []
-    agility:
-      baseValue: 0
-      modifires: []
-    intelligence:
-      baseValue: 0
-      modifires: []
-    vitality:
       baseValue: 0
       modifires: []
   offense:
@@ -2409,6 +2398,19 @@ MonoBehaviour:
       baseValue: 0
       modifires: []
     lightningRes:
+      baseValue: 0
+      modifires: []
+  major:
+    strength:
+      baseValue: 0
+      modifires: []
+    agility:
+      baseValue: 0
+      modifires: []
+    intelligence:
+      baseValue: 0
+      modifires: []
+    vitality:
       baseValue: 0
       modifires: []
 --- !u!114 &1188778153

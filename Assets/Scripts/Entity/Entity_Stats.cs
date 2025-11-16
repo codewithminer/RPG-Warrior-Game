@@ -174,7 +174,6 @@ public class Entity_Stats : MonoBehaviour
 
     }
 
-
     [ContextMenu("Update Default Stat Setup")]
     public void ApplyDefaultStatSetup()
     {

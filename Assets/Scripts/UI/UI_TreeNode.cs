@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    [SerializeField] private Skill_DataSO skillData;
+    [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
     [SerializeField] private string lockedColorHex = "#9F9797";
     private Color lastColor;
@@ -13,6 +15,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private void Awake()
     {
         UpdateIconColor(GetColorByHex(lockedColorHex));   
+    }
+
+    private void OnValidate()
+    {
+        if (skillData == null)
+            return;
+        
+        skillName = skillData.displayName;
+        skillIcon.sprite = skillData.icon;
+        gameObject.name = "UI_TreeNode - " + skillData.displayName;
     }
 
     private void Unlock()

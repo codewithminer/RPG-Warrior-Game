@@ -1,0 +1,46 @@
+using System;
+using UnityEngine;
+
+[Serializable]
+public class UI_TreeConnectDetails
+{
+    public UI_TreeConnectHandler childNode;
+    public NodeDirectionType direction;
+    [Range(100f,350f)] public float length;
+}
+
+public class UI_TreeConnectHandler : MonoBehaviour
+{
+    private RectTransform rect;
+    [SerializeField] private UI_TreeConnectDetails[] details;
+    [SerializeField] private UI_TreeConnection[] connections;
+
+    private void OnValidate()
+    {
+        if (rect == null)
+            rect = GetComponent<RectTransform>();
+
+        if (details.Length != connections.Length)
+        {
+            Debug.Log("Amount of details of should be same as amount of connections. - " + gameObject.name);
+            return;
+        }
+
+        UpdateConnections();
+    }
+
+    private void UpdateConnections()
+    {
+        for (int i = 0; i < details.Length; i++)
+        {
+            var detail = details[i];
+            var connection = connections[i];
+            Vector2 targetPosition = connection.GetConnectionPoint(rect);
+
+            connection.DirectConnection(detail.direction, detail.length);
+            detail.childNode.SetPosition(targetPosition);
+        }
+    }
+
+    public void SetPosition(Vector2 position) => rect.anchoredPosition = position;
+}

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class UI_SkillToolTip : UI_ToolTip
 {
+    private UI ui;
     private UI_SkillTree skillTree;
 
     [SerializeField] private TextMeshProUGUI skillName;
@@ -18,10 +20,13 @@ public class UI_SkillToolTip : UI_ToolTip
     [SerializeField] private Color exampleColor;
     [SerializeField] private string lockedSkillText = "You've taken a different path - this skill is now locked.";
 
+    private Coroutine textEffectCo;
+
     protected override void Awake()
     {
         base.Awake();
-        skillTree = GetComponentInParent<UI_SkillTree>();
+        ui = GetComponentInParent<UI>();
+        skillTree = ui.GetComponentInChildren<UI_SkillTree>();
     }
 
     public override void ShowToolTip(bool show, RectTransform targetRect)
@@ -45,6 +50,26 @@ public class UI_SkillToolTip : UI_ToolTip
         skillRequirements.text = requirements;
     }
 
+    public void LockedSkillEffect()
+    {
+        if (textEffectCo != null)
+            StopCoroutine(textEffectCo);
+        
+        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, .15f, 3));
+    }
+
+    private IEnumerator TextBlinkEffectCo(TextMeshProUGUI text, float blinkInterval, int blinkCount)
+    {
+        for (int i = 0; i < blinkCount; i++)
+        {
+            text.text = GetColoredText(notMetConditionHex, lockedSkillText);
+            yield return new WaitForSeconds(blinkInterval);
+
+            text.text = GetColoredText(importantInfoHex, lockedSkillText);
+            yield return new WaitForSeconds(blinkInterval);
+        }
+    }
+
     private string GetRequirements(int skillCost, UI_TreeNode[] neededNodes, UI_TreeNode[] confictNodes)
     {
         StringBuilder sb = new StringBuilder();
@@ -66,5 +91,10 @@ public class UI_SkillToolTip : UI_ToolTip
             sb.AppendLine($"<color={importantInfoHex}>- {node.skillData.displayName} </color>");
         }
         return sb.ToString();
+    }
+
+    private string GetColoredText(string color, string text)
+    {
+        return $"<color={color}>{text}</color>";
     }
 }

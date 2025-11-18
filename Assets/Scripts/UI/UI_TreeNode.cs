@@ -6,19 +6,26 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     private UI ui;
     private RectTransform rect;
+    private UI_SkillTree skillTree;
 
-    [SerializeField] private Skill_DataSO skillData;
+    [Header("Unlock details")]
+    public UI_TreeNode[] neededNodes;
+    public UI_TreeNode[] conflictNodes;
+    public bool isUnlocked;
+    public bool isLocked;
+
+    [Header("Skill details")]
+    public Skill_DataSO skillData;
     [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
     [SerializeField] private string lockedColorHex = "#9F9797";
     private Color lastColor;
-    public bool isUnlocked;
-    public bool isLocked;
 
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
         rect = GetComponent<RectTransform>();
+        skillTree = GetComponentInParent<UI_SkillTree>();
 
         UpdateIconColor(GetColorByHex(lockedColorHex));   
     }
@@ -37,6 +44,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         isUnlocked = true;
         UpdateIconColor(Color.white);
+        skillTree.RemoveSkillPoints(skillData.cost);
+        LockConflictNodes();
     }
 
     private bool CanBeUnlocked()
@@ -44,7 +53,30 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if ( isLocked | isUnlocked)
             return false;
 
+        if(skillTree.EnoughSkillPoints(skillData.cost) == false)
+            return false;
+
+        foreach (var node in neededNodes)
+        {
+            if (!node.isUnlocked)
+                return false;
+        }
+
+        foreach (var node in conflictNodes)
+        {
+            if (node.isUnlocked)
+                return false;
+        }
+
         return true;
+    }
+
+    private void LockConflictNodes()
+    {
+        foreach (var node in conflictNodes)
+        {
+            node.isLocked = true;
+        }
     }
 
     private void UpdateIconColor(Color color)
@@ -66,7 +98,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowToolTip(true, rect, skillData);
+        ui.skillToolTip.ShowToolTip(true, rect, this);
 
         if (!isUnlocked)
             UpdateIconColor(Color.white * .9f);

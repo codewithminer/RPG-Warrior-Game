@@ -42,16 +42,6 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         connectHandler.UnloclConnectionImage(false);
     }
 
-    private void OnValidate()
-    {
-        if (skillData == null)
-            return;
-        
-        skillName = skillData.displayName;
-        skillIcon.sprite = skillData.icon;
-        gameObject.name = "UI_TreeNode - " + skillData.displayName;
-    }
-
     private void Unlock()
     {
         isUnlocked = true;
@@ -114,21 +104,24 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ui.skillToolTip.ShowToolTip(true, rect, this);
 
-        if (isUnlocked || isLocked)
-            return;
-
-        Color color = Color.white * .9f; color.a = 1f;
-        UpdateIconColor(color);
+        if (!isUnlocked || !isLocked)
+            ToggleNodeHighlight(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.ShowToolTip(false, rect);
 
-        if (isUnlocked || isLocked)
-            return;
+        if (!isUnlocked || !isLocked)
+            ToggleNodeHighlight(false);
+    }
+    
+    private void ToggleNodeHighlight(bool highlight)
+    {
+        Color highlightColor = Color.white * .9f; highlightColor.a = 1f;
+        Color colorToApply = highlight ? highlightColor : lastColor;
 
-        UpdateIconColor(lastColor);
+        UpdateIconColor(colorToApply);
     }
 
     private Color GetColorByHex(string hexNumber)
@@ -136,5 +129,23 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ColorUtility.TryParseHtmlString(hexNumber, out Color color);
 
         return color;
+    }
+
+    private void ODisable()
+    {
+        if(isLocked)
+            UpdateIconColor(GetColorByHex(lockedColorHex));
+        if(isUnlocked)
+            UpdateIconColor(Color.white);
+    }
+
+    private void OnValidate()
+    {
+        if (skillData == null)
+            return;
+        
+        skillName = skillData.displayName;
+        skillIcon.sprite = skillData.icon;
+        gameObject.name = "UI_TreeNode - " + skillData.displayName;
     }
 }

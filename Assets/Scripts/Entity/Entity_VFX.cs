@@ -6,7 +6,7 @@ using UnityEngine;
 public class Entity_VFX : MonoBehaviour
 {
     private Entity entity;
-    private SpriteRenderer sr;
+    protected SpriteRenderer sr;
     
     [Header("On Taking Damage VFX")]
     [SerializeField] private Material onDamageMaterial;

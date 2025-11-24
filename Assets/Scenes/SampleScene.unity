@@ -4954,11 +4954,11 @@ GameObject:
   - component: {fileID: 1188778151}
   - component: {fileID: 1188778152}
   - component: {fileID: 1188778149}
-  - component: {fileID: 1188778150}
   - component: {fileID: 1188778153}
   - component: {fileID: 1188778154}
   - component: {fileID: 1188778147}
   - component: {fileID: 1188778146}
+  - component: {fileID: 1188778155}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5106,26 +5106,6 @@ MonoBehaviour:
   heavyDamageThreshhold: 0.3
   heavyKnockbackDuration: 0.5
   onHeavyDamageKnockback: {x: 5, y: 5}
---- !u!114 &1188778150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188778143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76ed556fc352c9d45b83d3c09120cc9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
-  onDamageMaterial: {fileID: 2100000, guid: 15a581bef2f72f0408eda0bea1264ccf, type: 2}
-  onDamageVfxDuration: 0.15
-  hitVfxColor: {r: 0.9528302, g: 0.29214135, b: 0.32987538, a: 1}
-  hitVfx: {fileID: 2384945983892869880, guid: 47cf6894c42b44e4f952766df2003bb3, type: 3}
-  critHitVfx: {fileID: 6565518752738296023, guid: 87d3d2679a36685438763b7fc7230c4e, type: 3}
-  chillVfx: {r: 0, g: 1, b: 1, a: 1}
-  burnVfx: {r: 1, g: 0, b: 0, a: 1}
-  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &1188778151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5250,6 +5230,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2c37d52effc3242b2c7e32c538eacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_SkillManager
+--- !u!114 &1188778155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188778143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb368de81f4f13b428cd7d70f2d3c0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 15a581bef2f72f0408eda0bea1264ccf, type: 2}
+  onDamageVfxDuration: 0.15
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVfx: {fileID: 2384945983892869880, guid: 47cf6894c42b44e4f952766df2003bb3, type: 3}
+  critHitVfx: {fileID: 6565518752738296023, guid: 87d3d2679a36685438763b7fc7230c4e, type: 3}
+  chillVfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  imageEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 6397847071821145472, guid: a56c5abf129627a459f97d694b65c145, type: 3}
 --- !u!1 &1196987964
 GameObject:
   m_ObjectHideFlags: 0
@@ -8061,8 +8063,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1634547896}
-  - {fileID: 264947067}
   - {fileID: 1611258623}
+  - {fileID: 264947067}
   - {fileID: 684548745}
   - {fileID: 77433206}
   m_Father: {fileID: 1001240155}

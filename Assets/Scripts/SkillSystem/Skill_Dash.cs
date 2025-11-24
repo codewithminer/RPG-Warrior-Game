@@ -3,4 +3,32 @@ using UnityEngine;
 public class Skill_Dash : Skill_Base
 {
 
+    public void onStartEffect()
+    {
+        if (Unlocked(SkillUpgradeType.Dash_CloneOnStart) || Unlocked(SkillUpgradeType.Dash_CloneOnStartAndArrival))
+            CreateClone();
+
+        if (Unlocked(SkillUpgradeType.Dash_ShardOnShart) || Unlocked(SkillUpgradeType.Dash_ShardOnStartAndArrival))
+            CreateShard();
+    }
+
+    public void onEndEffect()
+    {
+        if (Unlocked(SkillUpgradeType.Dash_CloneOnStartAndArrival))
+            CreateClone();
+            
+        if (Unlocked(SkillUpgradeType.Dash_ShardOnStartAndArrival))
+            CreateShard();
+    }
+
+    private void CreateShard()
+    {
+        Debug.Log("create time shard.");
+    }
+
+    private void CreateClone()
+    {
+        Debug.Log("create time echo.");
+    }
+
 }

@@ -3761,6 +3761,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &891631889
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 284898820931085823, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 284898820931085823, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281024622181669262, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559818701205613659, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Skeleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
 --- !u!1 &907040355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,7 +4337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1001240155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6483,6 +6552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499204449}
   - component: {fileID: 1499204450}
+  - component: {fileID: 1499204451}
   m_Layer: 7
   m_Name: Skills_Holder
   m_TagString: Untagged
@@ -6520,6 +6590,23 @@ MonoBehaviour:
   skillType: 0
   upgradeType: 0
   cooldown: 3
+--- !u!114 &1499204451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499204448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6e07f4313a59a438dce24d05cc3757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillShard
+  skillType: 0
+  upgradeType: 1
+  cooldown: 1
+  shardPrefab: {fileID: 885647200049547212, guid: 4ab70d4cbe2310744a935062ff11ae5b, type: 3}
+  detonationTime: 2
 --- !u!1 &1521727831
 GameObject:
   m_ObjectHideFlags: 0
@@ -41414,3 +41501,4 @@ SceneRoots:
   - {fileID: 1188274287}
   - {fileID: 1052350257}
   - {fileID: 139646308}
+  - {fileID: 891631889}

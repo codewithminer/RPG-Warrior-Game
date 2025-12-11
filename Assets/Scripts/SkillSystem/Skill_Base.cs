@@ -5,13 +5,15 @@ public class Skill_Base : MonoBehaviour
     [Header("General details")]
     [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
-    [SerializeField] private float cooldown;
+    [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         lastTimeUsed -= cooldown;
     }
+
+    public virtual void TryUseSkill(){}
 
     public void SetSkillUpgrade(UpgradeData upgrade)
     {

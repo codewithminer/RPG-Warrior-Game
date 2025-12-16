@@ -11,6 +11,8 @@ public class Player : Entity
     public PlayerInputSet input { get; private set; }
     public Player_SkillManager skillManager {get; private set;}
     public Player_VFX vfx {get; private set;}
+    public Entity_Health health {get; private set;}
+    public Entity_StatusHandler statusHandler {get; private set;}
 
     # region State Variables
 
@@ -25,6 +27,7 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_DeadState deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
+    public Player_SwordThrowState swordThrowState {get; private set;}
 
     #endregion
 
@@ -47,6 +50,7 @@ public class Player : Entity
     public float dashSpeed = 20;
     public float moveSpeed = 7f;
     public float jumpForce = 5f;
+    public Vector2 mousePosition {get; private set;}
 
     protected override void Awake()
     {
@@ -55,6 +59,8 @@ public class Player : Entity
         input = new PlayerInputSet();
         skillManager = GetComponent<Player_SkillManager>();
         vfx = GetComponent<Player_VFX>();
+        statusHandler = GetComponent<Entity_StatusHandler>();
+        health = GetComponent<Entity_Health>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -67,6 +73,7 @@ public class Player : Entity
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         deadState = new Player_DeadState(this, stateMachine, "dead");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
+        swordThrowState = new Player_SwordThrowState(this, stateMachine, "swordThrow");
     }
 
     protected override void Start()
@@ -138,6 +145,8 @@ public class Player : Entity
         // this function is called when the game object becomes enabled and active
         // and called before Start() and after Awake()
         input.Enable();
+
+        input.Player.Mouse.performed += context => mousePosition = context.ReadValue<Vector2>();
 
         input.Player.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
         input.Player.Movement.canceled += context => moveInput = Vector2.zero;

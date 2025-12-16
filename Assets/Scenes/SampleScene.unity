@@ -3850,9 +3850,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
   neededNodes:
   - {fileID: 1634547898}
+  - {fileID: 71639180}
   conflictNodes:
   - {fileID: 77433208}
-  - {fileID: 1611258622}
   isUnlocked: 0
   isLocked: 0
   skillData: {fileID: 11400000, guid: 950ed3644b09ac14a827354800f20562, type: 2}
@@ -6917,16 +6917,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a57f0335ddaa64d98031dfa28c674f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Combat
+  basicAttackScale:
+    physical: 1
+    elemental: 0.4
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 1999586889}
   targetCheckRadius: 1
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  defaultDuration: 3
-  chillSlowMultiplier: 0.2
-  electrifyChargeBuildUp: 0.4
-  fireScale: 0.8
-  lightningScale: 2.5
   counterRecovery: 0.25
 --- !u!114 &1188778152
 MonoBehaviour:
@@ -6968,10 +6973,10 @@ MonoBehaviour:
       baseValue: 0
       modifires: []
     iceDamage:
-      baseValue: 0
+      baseValue: 22
       modifires: []
     lightningDamage:
-      baseValue: 0
+      baseValue: 10
       modifires: []
   defense:
     armor:
@@ -7048,7 +7053,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 6565518752738296023, guid: 87d3d2679a36685438763b7fc7230c4e, type: 3}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
-  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  shockVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   imageEchoInterval: 0.05
   imageEchoPrefab: {fileID: 6397847071821145472, guid: a56c5abf129627a459f97d694b65c145, type: 3}
 --- !u!1 &1196987964
@@ -10485,9 +10490,9 @@ RectTransform:
   m_Children:
   - {fileID: 71639181}
   - {fileID: 152159371}
-  - {fileID: 841194615}
   - {fileID: 1469818957}
   - {fileID: 1508563289}
+  - {fileID: 841194615}
   m_Father: {fileID: 1001240155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10883,9 +10888,9 @@ RectTransform:
   m_Children:
   - {fileID: 1634547896}
   - {fileID: 1611258623}
-  - {fileID: 264947067}
   - {fileID: 684548745}
   - {fileID: 77433206}
+  - {fileID: 264947067}
   m_Father: {fileID: 1001240155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

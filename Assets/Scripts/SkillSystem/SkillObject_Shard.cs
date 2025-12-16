@@ -59,7 +59,7 @@ public class SkillObject_Shard : SkillObject_Base
         Destroy(gameObject);
     }
 
-    private void OTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Enemy>() == null)
             return;

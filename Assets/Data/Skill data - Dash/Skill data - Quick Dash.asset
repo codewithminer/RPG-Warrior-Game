@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feb8175f2636f64b87c0f3d851b84b1, type: 3}
   m_Name: Skill data - Quick Dash
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  cost: 2
-  unlockedByDefault: 0
-  skillType: 0
-  upgradeData:
-    upgradeType: 1
-    cooldown: 3
   displayName: Quick Dash
   description: 'Dash to avoid attacks.
 
     you cannot take damage while dashing'
   icon: {fileID: -1238284030, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
+  cost: 2
+  unlockedByDefault: 1
+  skillType: 0
+  upgradeData:
+    upgradeType: 1
+    cooldown: 3
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4

@@ -5090,11 +5090,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 284898820931085823, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 284898820931085823, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5147,6 +5147,10 @@ PrefabInstance:
     - target: {fileID: 8559818701205613659, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559818701205613659, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5735,7 +5739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1001240155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5770,7 +5774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f036cfba48557e94d801cc2249518ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_SkillTree
-  skillPoints: 10
+  skillPoints: 20
   parentNodes:
   - {fileID: 1735205972}
   - {fileID: 1634547897}
@@ -8804,6 +8808,7 @@ GameObject:
   - component: {fileID: 1499204449}
   - component: {fileID: 1499204450}
   - component: {fileID: 1499204451}
+  - component: {fileID: 1499204452}
   m_Layer: 7
   m_Name: Skills_Holder
   m_TagString: Untagged
@@ -8864,6 +8869,26 @@ MonoBehaviour:
   isRecharging: 0
   shardExistDuration: 10
   saveHealthPercent: 0
+--- !u!114 &1499204452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499204448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf11be8ead97f4c4b94458323a6b12ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_SwordThrow
+  skillType: 3
+  upgradeType: 11
+  cooldown: 0
+  throwPower: 5
+  swordGravity: 3.5
+  predictionDot: {fileID: 975902740939850040, guid: e0f28fea51c6f31438e1d82523ea0c49, type: 3}
+  numberOfDots: 20
+  spaceBetweenDots: 0.05
 --- !u!1 &1508563287
 GameObject:
   m_ObjectHideFlags: 0
@@ -10489,10 +10514,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 71639181}
-  - {fileID: 152159371}
   - {fileID: 1469818957}
   - {fileID: 1508563289}
   - {fileID: 841194615}
+  - {fileID: 152159371}
   m_Father: {fileID: 1001240155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10888,9 +10913,9 @@ RectTransform:
   m_Children:
   - {fileID: 1634547896}
   - {fileID: 1611258623}
+  - {fileID: 264947067}
   - {fileID: 684548745}
   - {fileID: 77433206}
-  - {fileID: 264947067}
   m_Father: {fileID: 1001240155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12491,9 +12516,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2036270509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d425d08a40b27d4f8e903196819416d, type: 3}
+  m_Script: {fileID: 11500000, guid: 137bea733e121df4daec718ee6320bf9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_AnimationTriggers
+  m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationTriggers
 --- !u!1 &2043034998
 GameObject:
   m_ObjectHideFlags: 0

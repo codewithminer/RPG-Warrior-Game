@@ -8,6 +8,7 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected Transform targetCheck;
     [SerializeField] protected float checkRadius = 1;
 
+    protected Rigidbody2D rb;
     protected Animator anim;
     protected Entity_Stats playerStats;
     protected DamageScaleData damageScaleData;
@@ -16,6 +17,7 @@ public class SkillObject_Base : MonoBehaviour
 
     protected virtual void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
 

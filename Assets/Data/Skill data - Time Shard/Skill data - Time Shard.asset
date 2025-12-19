@@ -19,7 +19,7 @@ MonoBehaviour:
     when touched by an enemy or when time gose up.'
   icon: {fileID: 1817716345, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
   cost: 1
-  unlockedByDefault: 1
+  unlockedByDefault: 0
   skillType: 2
   upgradeData:
     upgradeType: 6

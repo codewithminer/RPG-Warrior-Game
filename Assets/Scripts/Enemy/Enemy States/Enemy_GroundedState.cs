@@ -11,7 +11,7 @@ public class Enemy_GroundedState : EnemyState
     {
         base.Update();
 
-        if (enemy.PlayerDetectedByRaycast())
+        if (enemy.PlayerDetected())
             stateMachine.ChangeState(enemy.battleState);
     }
 }

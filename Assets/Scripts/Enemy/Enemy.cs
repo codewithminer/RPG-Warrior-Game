@@ -67,7 +67,7 @@ public class Enemy : Entity
     public Transform GetPlayerRefrence()
     {
         if (player == null)
-            player = PlayerDetectedByRaycast().transform;
+            player = PlayerDetected().transform;
         return player;
     }
 
@@ -82,7 +82,7 @@ public class Enemy : Entity
         stateMachine.ChangeState(idleState);
     }
 
-    public RaycastHit2D PlayerDetectedByRaycast()
+    public RaycastHit2D PlayerDetected()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * facingDir, playerCheckDistance, whatIsPlayer | whatIsGround );
 

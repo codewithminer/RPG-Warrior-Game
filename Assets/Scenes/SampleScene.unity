@@ -3437,7 +3437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1581875047, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
+  m_Sprite: {fileID: -479320017, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6305,7 +6305,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0.000022888184, y: 0}
-  m_SizeDelta: {x: 208, y: 5}
+  m_SizeDelta: {x: 210, y: 5}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &861326798
 MonoBehaviour:
@@ -7732,7 +7732,7 @@ MonoBehaviour:
     rotation: -1.2
   - childNode: {fileID: 1833815592}
     direction: 8
-    length: 208
+    length: 210
     rotation: -5.8
   connections:
   - {fileID: 18006556}
@@ -10699,71 +10699,6 @@ MonoBehaviour:
   skillName: Irritated Shard
   skillIcon: {fileID: 1156228305}
   lockedColorHex: '#9F9797'
---- !u!1001 &1470023320
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 284898820931085823, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 284898820931085823, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.2015226
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.2479736
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559818701205613659, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Skeleton (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
 --- !u!1 &1472361277
 GameObject:
   m_ObjectHideFlags: 0
@@ -11074,16 +11009,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_SwordThrow
   skillType: 3
-  upgradeType: 12
+  upgradeType: 14
   cooldown: 0
   swordPrefab: {fileID: 6814675227309145294, guid: 38f1667f25079044693a706945a095ec, type: 3}
-  throwPower: 2
+  regularThrowPower: 2.57
   pierceSwordPrefab: {fileID: 499365466349003624, guid: ca5be93062265004eb5cbd32da965ea2, type: 3}
   amountTopierce: 2
+  pierceThrowPower: 5.49
   spinSwordPrefab: {fileID: 1249074500181875442, guid: 1dfedcee425414a4a9749130b00bbb29, type: 3}
   maxDistance: 5
   attackPerSecond: 6
   maxSpinDuration: 3
+  spinThrowPower: 3.96
+  bounceSwordPrefab: {fileID: 4702702305287900864, guid: 35a2c3800b8460d468b4486ab05be669, type: 3}
+  bounceCount: 5
+  bounceSpeed: 12
+  bounceThrowPower: 4.38
   predictionDot: {fileID: 975902740939850040, guid: e0f28fea51c6f31438e1d82523ea0c49, type: 3}
   numberOfDots: 20
   spaceBetweenDots: 0.05
@@ -13692,7 +13633,7 @@ GameObject:
   - component: {fileID: 1833815593}
   - component: {fileID: 1833815592}
   m_Layer: 5
-  m_Name: UI_TreeNode - Mirror Shard
+  m_Name: UI_TreeNode - The Xenablade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13718,7 +13659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.88202, y: -159.25116}
+  m_AnchoredPosition: {x: 131.14612, y: -160.80103}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833815592
@@ -13764,8 +13705,8 @@ MonoBehaviour:
   - {fileID: 1586111880}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: 6d564573030e13247b94a98c8d033c11, type: 2}
-  skillName: Mirror Shard
+  skillData: {fileID: 11400000, guid: b761db542055078448529966e0d0adc2, type: 2}
+  skillName: The Xenablade
   skillIcon: {fileID: 470287420}
   lockedColorHex: '#9F9797'
 --- !u!1 &1839357212
@@ -15231,11 +15172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.17
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47755,5 +47696,4 @@ SceneRoots:
   - {fileID: 1052350257}
   - {fileID: 139646308}
   - {fileID: 891631889}
-  - {fileID: 1470023320}
   - {fileID: 2021323108}

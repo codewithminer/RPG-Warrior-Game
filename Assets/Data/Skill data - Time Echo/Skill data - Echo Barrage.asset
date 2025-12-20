@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5feb8175f2636f64b87c0f3d851b84b1, type: 3}
-  m_Name: Skill data - Timeless Attack
+  m_Name: Skill data - Echo Barrage
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  displayName: Timeless Attack
-  description: the time echo can perform 1 attack
-  icon: {fileID: 1643677077, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
+  displayName: Echo Barrage
+  description: The time echo can perform 3 attack.
+  icon: {fileID: 994124394, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
   cost: 2
   unlockedByDefault: 0
   skillType: 1
   upgradeData:
-    upgradeType: 16
+    upgradeType: 17
     cooldown: 0
     damageScaleData:
       physical: 1

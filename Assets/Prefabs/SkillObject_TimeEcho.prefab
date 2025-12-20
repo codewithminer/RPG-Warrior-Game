@@ -148,7 +148,7 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 256
-  targetCheck: {fileID: 1257498181245279259}
+  targetCheck: {fileID: 7056418730544035251}
   checkRadius: 1
   onDeathVfx: {fileID: 1962570304665702051, guid: 5b5300080992c83489e68f126d92e368, type: 3}
   whatIsGround:
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 4826340454512615746}
   - component: {fileID: 8103632206736179382}
   - component: {fileID: 3916158817499861578}
-  - component: {fileID: 9126867300937802599}
+  - component: {fileID: 8465464050084615304}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -289,7 +289,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9126867300937802599
+--- !u!114 &8465464050084615304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,6 +298,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8021878535832730963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 137bea733e121df4daec718ee6320bf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c4305b59cf493844837f94ded4da4d0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationTriggers
+  m_EditorClassIdentifier: Assembly-CSharp::SkillObject_AnimationTriggers

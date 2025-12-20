@@ -7747,7 +7747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1001240155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9506,7 +9506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8753a9a45e150498538315ffeaa755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  currentHealth: 0
+  currentHealth: 50
   isDead: 0
   regenInterval: 1
   canRegenerateHealth: 1
@@ -10023,6 +10023,18 @@ PrefabInstance:
     - target: {fileID: 2279225252125126282, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281024622181669262, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281024622181669262, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011203668256571769, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
+      propertyPath: currentHealth
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8559818701205613659, guid: 399612918735f0b49ab69e1741aa434d, type: 3}
       propertyPath: m_Name
@@ -11827,12 +11839,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_TimeEcho
   skillType: 0
-  upgradeType: 18
+  upgradeType: 19
   cooldown: 0
   timeEchoPrefab: {fileID: 5805137982732140125, guid: 0582383230c5c564e8c1f5e752afef5e, type: 3}
   timeEchoDuration: 15
   maxAttacks: 3
   duplicateChance: 1
+  damagePercentHealed: 0.3
+  cooldownReducedInSeconds: 0
 --- !u!1 &1508563287
 GameObject:
   m_ObjectHideFlags: 0

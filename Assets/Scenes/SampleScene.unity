@@ -9365,9 +9365,9 @@ GameObject:
   - component: {fileID: 1188778149}
   - component: {fileID: 1188778153}
   - component: {fileID: 1188778154}
+  - component: {fileID: 1188778155}
   - component: {fileID: 1188778147}
   - component: {fileID: 1188778146}
-  - component: {fileID: 1188778155}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -9588,7 +9588,7 @@ MonoBehaviour:
       baseValue: 22
       modifires: []
     lightningDamage:
-      baseValue: 10
+      baseValue: 0
       modifires: []
   defense:
     armor:
@@ -11863,8 +11863,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DomainExpansion
   skillType: 4
-  upgradeType: 23
+  upgradeType: 22
   cooldown: 0
+  domainPrefab: {fileID: 201727080785633403, guid: 3bdcde9faba232449afcef05f6faa6ce, type: 3}
+  slowDownPercent: 0.8
+  slowDownDomainDuration: 5
+  spellCastingDomainSlowDown: 1
+  spellCastingDomainDuration: 8
+  maxDomainSize: 10
+  expandSpeed: 3
 --- !u!1 &1508563287
 GameObject:
   m_ObjectHideFlags: 0

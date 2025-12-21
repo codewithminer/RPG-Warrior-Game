@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour
     [Header("Collision detection")]
     [SerializeField] private float groundCheckDistance = 1.4f;
     [SerializeField] private float wallCheckDistance = .44f;
-    [SerializeField] protected LayerMask whatIsGround;
+    public LayerMask whatIsGround;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform primaryWallCheck;
     [SerializeField] private Transform secondaryWallCheck;

@@ -33,17 +33,20 @@ public class Player_DomainExpensionState : PlayerState
 
         if (isLevitating)
         {
+            skillManager.domainExpansion.DoSpellCasting();
+
             if(stateTimer < 0)
+            {
+                isLevitating = false;
+                rb.gravityScale = originalGravity;
                 stateMachine.ChangeState(player.idleState);
+            }
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        rb.gravityScale = originalGravity;
-        isLevitating = false;
         createDomain = false;
     }
 
@@ -53,7 +56,7 @@ public class Player_DomainExpensionState : PlayerState
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0;
 
-        stateTimer = 2;
+        stateTimer = skillManager.domainExpansion.GetDomainDuration();
 
         if (!createDomain)
         {

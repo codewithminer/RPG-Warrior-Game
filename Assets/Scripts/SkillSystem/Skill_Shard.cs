@@ -141,11 +141,17 @@ public class Skill_Shard : Skill_Base
             currentShard.OnExplode += ForceCooldown;
     }
 
-    public void CreateRawShard()
+    public void CreateDomainShard(Transform target)
     {
-        bool canMove = Unlocked(SkillUpgradeType.Shard_MoveToEnemy) || Unlocked(SkillUpgradeType.Shard_Multicast);
+        
+    }
+
+    public void CreateRawShard(Transform target = null, bool shardsCanMove = false)
+    {
+        bool canMove = shardsCanMove != false ? shardsCanMove : 
+        Unlocked(SkillUpgradeType.Shard_MoveToEnemy) || Unlocked(SkillUpgradeType.Shard_Multicast);
         GameObject shard = Instantiate(shardPrefab, transform.position, Quaternion.identity);
-        shard.GetComponent<SkillObject_Shard>().SetupShard(this, detonateTime, canMove, shardSpeed);
+        shard.GetComponent<SkillObject_Shard>().SetupShard(this, detonateTime, canMove, shardSpeed, target);
     }
 
     public float GetDenotateTime()

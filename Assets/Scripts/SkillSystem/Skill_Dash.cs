@@ -28,7 +28,7 @@ public class Skill_Dash : Skill_Base
 
     private void CreateClone()
     {
-        Debug.Log("create time echo.");
+        skillManager.timeEcho.CreateTimeEcho();
     }
 
 }

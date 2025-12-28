@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e054cba73dc874a9ca31850f328ce1, type: 3}
   m_Name: Material data - Animal Leather
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSO
-  itemName: 
-  itemIcon: {fileID: 0}
+  itemName: Animal Leather
+  itemIcon: {fileID: 1641337328, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
   itemType: 0

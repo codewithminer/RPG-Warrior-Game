@@ -11,10 +11,20 @@ public class Inventory_Base : MonoBehaviour
 
     public bool CanAddItem() => itemList.Count < maxInventorySize;
 
-    public void AddItem(Inventory_Item item)
+    public void AddItem(Inventory_Item itemToAdd)
     {
-        itemList.Add(item);
-        
+        Inventory_Item itemInInventory = FindItem(itemToAdd.itemData);
+
+        if (itemInInventory != null)
+            itemInInventory.AddStack();
+        else
+            itemList.Add(itemToAdd);
+                    
         OnInventoryChange?.Invoke();
+    }
+
+    public Inventory_Item FindItem(ItemDataSO itemData)
+    {
+        return itemList.Find(item => item.itemData == itemData && item.CanAddStack());
     }
 }

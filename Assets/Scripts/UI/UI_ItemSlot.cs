@@ -18,12 +18,12 @@ public class UI_ItemSlot : MonoBehaviour
         {
             itemStackSize.text = "";
             itemIcon.color = Color.clear;
-            return;;
+            return;
         }
 
         Color color = Color.white; color.a = .9f;
         itemIcon.color = color;
         itemIcon.sprite = itemInSlot.itemData.itemIcon;
-        // itemStackSize.text = itemInSlot.stackSize;
+        itemStackSize.text = item.stackSize > 1 ? item.stackSize.ToString() : "";
     }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
     You can have only one active sword at the time.
   icon: {fileID: 1330407039, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
   cost: 1
-  unlockedByDefault: 0
+  unlockedByDefault: 1
   skillType: 3
   upgradeData:
     upgradeType: 11

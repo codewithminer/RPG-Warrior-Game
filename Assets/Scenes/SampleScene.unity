@@ -5991,7 +5991,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.19961137, y: 3.0620747, z: 27.75914}
+  m_LocalPosition: {x: -0.12961134, y: 3.1020746, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6870,7 +6870,7 @@ GameObject:
   - component: {fileID: 640044262}
   - component: {fileID: 640044261}
   m_Layer: 9
-  m_Name: Object_ItemPickup - Animal Leather
+  m_Name: Object_ItemPickup - Wooden Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6969,7 +6969,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1641337328, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
+  m_Sprite: {fileID: 1330407039, guid: 8cbbb8c4ebe380c47bd1708c11f36e71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6992,7 +6992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dc68ce1e0584845b4204b11db8e7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Object_ItemPickup
-  itemData: {fileID: 11400000, guid: 1d12e4eb1c05f0c4d9e19d417a94b6c5, type: 2}
+  itemData: {fileID: 11400000, guid: ef14a5107d9bec94590759c19de4ef42, type: 2}
 --- !u!4 &640044264
 Transform:
   m_ObjectHideFlags: 0
@@ -11736,7 +11736,7 @@ Transform:
   m_GameObject: {fileID: 1167905049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.19961137, y: 3.0620747, z: 27.75914}
+  m_LocalPosition: {x: -0.12961134, y: 3.1020746, z: 27.75914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12012,7 +12012,7 @@ Transform:
   m_GameObject: {fileID: 1188778143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 1.38, z: 0}
+  m_LocalPosition: {x: -0.47, y: 1.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12268,11 +12268,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1188778143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c882ecdfd3bed0b49ab3a86c4ac3f476, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b21f23018e0fdf419a8b29d4c977293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory_Base
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory_Player
   maxInventorySize: 10
   itemList: []
+  equipList: []
 --- !u!1 &1196987964
 GameObject:
   m_ObjectHideFlags: 0

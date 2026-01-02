@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory_EquipmentSlot
 {
     public ItemType slotType;
-    public Inventory_Item equipmentItem;
+    public Inventory_Item equipedItem;
 
-    public bool HasItem() => equipmentItem != null && equipmentItem.itemData != null;
+    public bool HasItem() => equipedItem != null && equipedItem.itemData != null;
 }

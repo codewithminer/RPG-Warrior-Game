@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 {
     public Inventory_Item itemInSlot {get; private set;}
-    private Inventory_Player inventory;
+    protected Inventory_Player inventory;
 
     [Header("UI Slot Setup")]
     [SerializeField] private Image itemIcon;
     [SerializeField] private TextMeshProUGUI itemStackSize;
 
-    private void Awake()
+    protected void Awake()
     {
         inventory = FindAnyObjectByType<Inventory_Player>();
     }
@@ -34,7 +34,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
         itemStackSize.text = item.stackSize > 1 ? item.stackSize.ToString() : "";
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         if (itemInSlot == null)
             return;

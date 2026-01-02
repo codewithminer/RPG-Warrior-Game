@@ -80,29 +80,24 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetPhysicalDamage(out bool isCrit, float scaleFactor = 1)
     {
-        float baseDamage = offense.damage.GetValue();
-        float bonusDamge = major.strength.GetValue();
-        float totalDamage = baseDamage + bonusDamge;
-
-        float baseCritChance = offense.critChance.GetValue();
-        float bonusCritChance = major.agility.GetValue() * .3f;
-        float critChance = baseCritChance + bonusCritChance;
-
-        float baseCritPower = offense.critPower.GetValue();
-        float bonusCritPower = major.strength.GetValue() * .5f;
-        float critPower = (baseCritPower + bonusCritPower) / 100;
+        float baseDamage = GetBaseDamage();
+        float critChance = GetCritChance();
+        float critPower = GetCritPower() / 100;
 
         isCrit = Random.Range(0, 100) < critChance;
-        float finalDamage = isCrit ? totalDamage * critPower : totalDamage;
+        float finalDamage = isCrit ? baseDamage * critPower : baseDamage;
 
         return finalDamage * scaleFactor;
     }
 
+    public float GetBaseDamage() => offense.damage.GetValue() + major.strength.GetValue(); // bounse damage from strength: +1 per STR
+    public float GetCritChance() => offense.critChance.GetValue() + (major.agility.GetValue() * .3f);// bounce crit chance from agility: +.3% per AGI
+    public float GetCritPower() => offense.critPower.GetValue() + (major.strength.GetValue() * .5f); // bounce crit chance from strength: +.5% per STR
+
+
     public float GetArmorMitigation(float armorReduction)
     {
-        float baseArmor = defense.armor.GetValue();
-        float bonusArmor = major.vitality.GetValue();
-        float totalArmor = baseArmor + bonusArmor;
+        float totalArmor = GetBaseArmor();
 
         float reductionMultiplier = Mathf.Clamp(1 - armorReduction, 0, 1);
         float effectiveArmor = totalArmor * reductionMultiplier;
@@ -114,6 +109,8 @@ public class Entity_Stats : MonoBehaviour
 
         return finalMitigation;
     }
+
+    public float GetBaseArmor() => defense.armor.GetValue() + major.vitality.GetValue(); // bouns armor from vitality: +1 per VIT
 
     public float GetArmorReduction()
     {

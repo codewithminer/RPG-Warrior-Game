@@ -10,10 +10,12 @@ public class Inventory_Item
     public int stackSize = 1;
 
     public ItemModifire[] modifires {get; private set;}
+    public ItemEffectDataSO itemEffect;
 
     public Inventory_Item(ItemDataSO itemData)
     {
         this.itemData = itemData;
+        itemEffect = itemData.itemEffect;
         modifires = EquipmentData()?.modifires;
 
         itemId = itemData.itemName + " - " + Guid.NewGuid();

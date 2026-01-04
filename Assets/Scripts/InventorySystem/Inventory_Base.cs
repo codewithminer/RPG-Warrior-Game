@@ -11,6 +11,23 @@ public class Inventory_Base : MonoBehaviour
 
     protected virtual void Awake(){}
 
+    public void TryUseItem(Inventory_Item itemToUse)
+    {
+        Inventory_Item consumable = itemList.Find(item => item == itemToUse);
+        
+        if(consumable == null)
+            return;
+        
+        consumable.itemEffect.ExecuteEffect();
+        
+        if (consumable.stackSize > 1)
+            consumable.RemoveStack();
+        else
+            RemoveItem(consumable);
+        
+        OnInventoryChange?.Invoke();
+    }
+
     public bool CanAddItem() => itemList.Count < maxInventorySize;
 
     public bool CanAddToStack(Inventory_Item itemToAdd)
@@ -52,7 +69,7 @@ public class Inventory_Base : MonoBehaviour
 
     public void RemoveItem(Inventory_Item itemToRemove)
     {
-        itemList.Remove(FindItem(itemToRemove.itemData));
+        itemList.Remove(itemToRemove);
         OnInventoryChange?.Invoke();
     }
 

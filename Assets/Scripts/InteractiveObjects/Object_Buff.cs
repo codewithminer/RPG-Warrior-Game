@@ -1,24 +1,16 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-
-[Serializable]
-public class Buff
-{
-    public StatType type;
-    public float value;
-}
 
 public class Object_Buff : MonoBehaviour
 {
-    private SpriteRenderer sr;
-    private Entity_Stats statsToModify;
+    private Player_Stats statsToModify;
 
     [Header("Buff details")]
-    [SerializeField] private Buff[] buffs;
+    [SerializeField] private BuffEffectData[] buffs;
     [SerializeField] private string buffName;
     [SerializeField] private float buffDuration = 4;
-    [SerializeField] private bool canBeUsed = true;
 
     [Header("Floaty movement")]
     [SerializeField] private float floatSpeed = 1f;
@@ -28,7 +20,6 @@ public class Object_Buff : MonoBehaviour
     private void Awake()
     {
         startPosition = transform.position;
-        sr = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -39,34 +30,11 @@ public class Object_Buff : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!canBeUsed)
-            return;
-
-        statsToModify = collision.GetComponent<Entity_Stats>();
-        StartCoroutine(BuffCo(buffDuration));
-    }
-
-    private IEnumerator BuffCo(float duration)
-    {
-        canBeUsed = false;
-        sr.color = Color.clear;
-        ApplyBuff(true);
-
-        yield return new WaitForSeconds(duration);
-
-        ApplyBuff(false);
-        Destroy(gameObject);
-    }
-    
-    private void ApplyBuff(bool apply)
-    {
-        foreach(var buff in buffs)
+        statsToModify = collision.GetComponent<Player_Stats>();
+        if (statsToModify.CanApplyBuffOf(buffName))
         {
-            if (apply)
-                statsToModify.GetStatByType(buff.type).AddModifire(buff.value, buffName);
-            else
-                statsToModify.GetStatByType(buff.type).RemoveModifire(buffName);
+            statsToModify.ApplyBuff(buffs, buffDuration, buffName);
+            Destroy(gameObject);
         }
     }
-
 }

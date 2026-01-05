@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleInventoryUI",
+                    "type": "Button",
+                    "id": "50137c61-dd46-44f1-b159-755301677a80",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -249,6 +258,17 @@
                     "processors": "",
                     "groups": ";Keyboard $ Mouse",
                     "action": "UltimateSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2caf37f0-a344-4453-925f-7c2362e6a4c1",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard $ Mouse",
+                    "action": "ToggleInventoryUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

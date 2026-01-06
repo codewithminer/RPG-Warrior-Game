@@ -13,6 +13,7 @@ public class Player : Entity
     public Player_VFX vfx {get; private set;}
     public Entity_Health health {get; private set;}
     public Entity_StatusHandler statusHandler {get; private set;}
+    public Player_Combat combat {get; private set;}
 
     # region State Variables
 
@@ -66,6 +67,7 @@ public class Player : Entity
         vfx = GetComponent<Player_VFX>();
         statusHandler = GetComponent<Entity_StatusHandler>();
         health = GetComponent<Entity_Health>();
+        combat = GetComponent<Player_Combat>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
